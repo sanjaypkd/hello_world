@@ -43,12 +43,12 @@ jobs:
         ibmcloud config --check-version=false
         ibmcloud plugin install -f kubernetes-service
         ibmcloud plugin install -f container-registry
+        ibmcloud target -g b537cf7d138947ec9f60d7d14d1bf49d
 
     # Authenticate with IBM Cloud CLI
     - name: Authenticate with IBM Cloud CLI
       run: |
         ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
-        ibmcloud target -g b537cf7d138947ec9f60d7d14d1bf49d
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
 
